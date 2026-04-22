@@ -1,286 +1,403 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nuestra Historia</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Nuestro Diario de Amor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ══ COVER ══ -->
-  <div id="cover">
-    <div class="hearts" id="hearts"></div>
-    <h1>Nuestra<br/>Historia</h1>
-    <p>Febrero 2025 — Hoy</p>
-    <button class="open-btn" onclick="openBook()">Abrir ✦</button>
-  </div>
+    <!-- ===== PARTÍCULAS DE CORAZONES ===== -->
+    <div class="hearts-container" id="heartsContainer"></div>
 
-  <!-- ══ PROGRESS ══ -->
-  <div id="progress-bar"></div>
-  <div id="page-counter"></div>
-
-  <!-- ══ BOOK ══ -->
-  <div id="book-wrapper">
-
-    <!-- Página 1 -->
-    <div class="page active" id="p1">
-      <span class="page-num">Página 01</span>
-      <span class="date-badge">4 de febrero de 2025</span>
-      <h2 class="chapter-title">El inicio inesperado</h2>
-      <div class="page-body">
-        <p>Todo inició en aquella reunión de jóvenes. No sé si fue casualidad o algo más grande, pero ese día, a través de la Lic. Yeny y después Rony, terminé llegando a la iglesia.</p>
-        <p>La reunión fue especial, pero lo que más recuerdo… fue conocerla por primera vez, aunque ya había escuchado de usted antes.</p>
-        <p>Fue un momento sencillo, sin mucho ruido, pero ahora que lo pienso, marcó algo importante.</p>
-      </div>
-      <div class="detail-box">
-        <strong>✦ Detalle que no olvido</strong>
-        Aún recuerdo cuando estaba repartiendo galletas… y me dejó de último 🥹
-      </div>
-
-      <div class="photo-box">
-        <img src="campamento.jpeg" alt="Recuerdo del campamento" class="story-photo" />
-      </div>
-
-      <div class="closing">
-        Ahí empezó una historia que en ese momento no imaginaba.
-      </div>
+    <!-- ===== PANTALLA DE INICIO ===== -->
+    <div id="intro-screen">
+        <div class="intro-stars" id="introStars"></div>
+        <div class="intro-heart">💖</div>
+        <h1 class="intro-title">Para Ti, Mi Amor</h1>
+        <p class="intro-subtitle">Un diario escrito con el corazón...</p>
+        <button class="intro-btn" onclick="openDiary()">
+            💌 Abrir con Amor
+        </button>
     </div>
 
-    <!-- Página 2 -->
-    <div class="page" id="p2">
-      <span class="page-num">Página 02</span>
-      <h2 class="chapter-title">Un paso fuera de lo normal</h2>
-      <div class="page-body">
-        <p>Después cada quien siguió asistiendo normalmente a la iglesia. Usted siempre muy seria, llegaba y se iba.</p>
-        <p>En ese proceso, nuevamente Dios usó a las mismas personas para acercarme más, y fue cuando me propusieron unirme al ministerio de medios. Acepté… aunque siendo sincero, eso no era muy propio de mí.</p>
-        <p>Siempre he sido de perfil bajo, casi invisible. Meterme en algo así era raro, pero aun así dije que sí.</p>
-      </div>
-      <div class="photo-box">
-        <img src="ministerio.jpeg" alt="Recuerdo del ministerio" class="story-photo" />
-      </div>
-
-      <div class="closing">
-        Sin darme cuenta, ya estaba entrando más en su mundo.
-      </div>
+    <!-- ===== TÍTULO PRINCIPAL ===== -->
+    <div class="main-title" id="mainTitle" style="display:none;">
+        <h1>💕 Nuestro Diario de Amor 💕</h1>
+        <p>Cada página, un pedacito de mi corazón para ti</p>
     </div>
 
-    <!-- Página 3 -->
-    <div class="page" id="p3">
-      <span class="page-num">Página 03</span>
-      <span class="date-badge">1 de abril de 2025</span>
-      <h2 class="chapter-title">El primer acercamiento real</h2>
-      <div class="page-body">
-        <p>Ese día comenzamos a hablar, poco, pero fue el inicio. No soy mucho de conversar, así que todo iba tranquilo.</p>
-        <p>Ese mismo mes pasé por la pérdida de un familiar muy querido… y aunque no teníamos mucha cercanía, usted se tomó el tiempo de darme palabras de consuelo.</p>
-        <p>Hoy, viendo hacia atrás, noto cosas que en ese momento no vi.</p>
-      </div>
-      <div class="closing">
-        Ahí empezó a haber algo diferente, aunque todavía no lo entendía.
-      </div>
-    </div>
+    <!-- ===== LIBRO ===== -->
+    <div class="book-wrapper" id="bookWrapper" style="display:none;">
+        <div class="book" id="mainBook">
 
-    <!-- Página 4 -->
-    <div class="page" id="p4">
-      <span class="page-num">Página 04</span>
-      <h2 class="chapter-title">Conversaciones simples</h2>
-      <div class="page-body">
-        <p>Nuestras conversaciones eran básicas.</p>
-        <p><em>"Hola Lorenzo, ¿cómo está?"</em></p>
-        <p><em>"Mire que enviaron la letra de las canciones…"</em></p>
-        <p>Todo giraba alrededor del ministerio.</p>
-        <p>Y bueno… también recuerdo que se iba sin despedirse, qué barbaridad jajaj, pero eso lo vamos a dejar pasar.</p>
-      </div>
-      <div class="photo-box p4-photo-box">
-        <img src="conversacion1.jpeg" alt="Recuerdo de nuestras conversaciones" class="story-photo p4-photo" />
-      </div>
+            <!-- ===== PORTADA ===== -->
+            <div class="book-cover" id="bookCover">
+                <div class="cover-texture"></div>
+                <div class="cover-heart-big">💝</div>
+                <div class="cover-title">Nuestro Diario<br>de Amor</div>
+                <div class="cover-subtitle">Escrito con cada latido de mi corazón</div>
+                <div class="cover-date" id="coverDate"></div>
+                <button class="open-btn" onclick="openBook()">
+                    📖 Abrir el Diario
+                </button>
+            </div>
 
-      <div class="closing">
-        Eran conversaciones simples, pero constantes.
-      </div>
-    </div>
+            <!-- ===== PÁGINAS ===== -->
+            <div class="book-pages" id="bookPages">
 
-    <!-- Página 5 -->
-    <div class="page" id="p5">
-      <span class="page-num">Página 05</span>
-      <span class="date-badge">17 de agosto</span>
-      <h2 class="chapter-title">La primera salida</h2>
-      <div class="page-body">
-        <p>Con el tiempo empezamos a hablar más allá del ministerio: trabajo, estudio… cosas normales.</p>
-        <p>En una de esas conversaciones usted dijo que estaba estresada y quería relajarse. Y salió el plan: después de la iglesia, ir al Juana Laínez.</p>
-        <p>Fuimos, almorzamos primero y luego subimos. El ambiente, el momento… todo se sintió bonito.</p>
-      </div>
-      <div class="detail-box">
-        <strong>✦ Detalle</strong>
-        ¿Se acuerda del de la bicicleta? Usted tenía miedo… y mírela ahora 😄
-      </div>
+                <!-- PÁGINA 1 - El Primer Día -->
+                <div class="page active" id="page-1">
+                    <div class="page-header">
+                        <span class="page-date">✨ El Día Que Todo Comenzó</span>
+                        <span class="page-emoji">🌹</span>
+                        <span class="page-number">Pág. 01</span>
+                    </div>
+                    <div class="page-content">
+                        <h2 class="page-title">El Primer Capítulo de Nosotros</h2>
+                        <p class="page-text">
+                            Querida mía,<br><br>
+                            Hay días que uno no olvida jamás. Días que quedan grabados
+                            en el alma como una melodía que nunca deja de sonar.
+                            El día que te conocí fue uno de esos días.
+                        </p>
+                        <div class="highlight-box">
+                            "Desde el primer momento que te vi, supe que algo
+                            en mi mundo había cambiado para siempre..."
+                        </div>
+                        <p class="page-text">
+                            No sabía entonces que esa persona que apareció ante mí
+                            se convertiría en mi <em>lugar favorito</em>, en mi
+                            <strong>hogar más preciado</strong>, en la razón más
+                            hermosa de sonreír cada mañana.
+                        </p>
+                        <div class="page-decoration">🌹 ✨ 🌹 ✨ 🌹</div>
+                        <p class="page-text">
+                            Gracias por existir. Gracias por cruzarte en mi camino.
+                            Gracias por ser tú.
+                        </p>
+                        <div class="signature">
+                            Con todo mi amor,
+                            <div class="signature-line">Tu persona favorita 💕</div>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="video-box">
-        <video controls preload="metadata" class="story-video">
-          <source src="video5.mp4" type="video/mp4" />
-          Tu navegador no soporta video HTML5.
-        </video>
-      </div>
+                <!-- PÁGINA 2 - Lo Que Amo De Ti -->
+                <div class="page" id="page-2">
+                    <div class="page-header">
+                        <span class="page-date">💛 Las Cosas Que Amo De Ti</span>
+                        <span class="page-emoji">⭐</span>
+                        <span class="page-number">Pág. 02</span>
+                    </div>
+                    <div class="page-content">
+                        <h2 class="page-title">Todo Lo Que Eres</h2>
+                        <p class="page-text">
+                            Si tuviera que escribir todo lo que amo de ti,
+                            necesitaría mil diarios como este. Pero déjame
+                            intentarlo...
+                        </p>
+                        <ul class="memory-list">
+                            <li>Amo tu sonrisa, esa que ilumina cualquier cuarto oscuro</li>
+                            <li>Amo tu risa, el sonido más bonito que he escuchado</li>
+                            <li>Amo tu forma de ver el mundo, tan única y especial</li>
+                            <li>Amo tu corazón enorme, siempre lleno de bondad</li>
+                            <li>Amo tus ojos, donde me pierdo cada vez que te miro</li>
+                            <li>Amo tu fuerza, aunque a veces no la veas en ti</li>
+                            <li>Amo tus locuras, las que compartimos juntos</li>
+                            <li>Amo tu voz, especialmente cuando me llamas por mi nombre</li>
+                            <li>Amo cómo me haces sentir: el más afortunado del mundo</li>
+                        </ul>
+                        <div class="highlight-box">
+                            "Eres la persona más extraordinaria que he conocido,
+                            y cada día me enamoro más de quien eres."
+                        </div>
+                    </div>
+                </div>
 
-      <div class="closing">
-        Ese día fue especial para mí, gracias por eso.
-      </div>
-    </div>
+                <!-- PÁGINA 3 - Nuestros Momentos -->
+                <div class="page" id="page-3">
+                    <div class="page-header">
+                        <span class="page-date">📸 Nuestros Momentos Favoritos</span>
+                        <span class="page-emoji">🎞️</span>
+                        <span class="page-number">Pág. 03</span>
+                    </div>
+                    <div class="page-content">
+                        <h2 class="page-title">Memorias Que Atesoro</h2>
+                        <div class="photo-frame">
+                            <div class="photo-emoji">📷</div>
+                            <div class="photo-caption">Nuestra foto favorita aquí 💕</div>
+                        </div>
+                        <p class="page-text">
+                            Cada momento contigo se convierte en un recuerdo
+                            que guardo con cuidado en el cofre más especial
+                            de mi corazón. Estos son algunos que nunca olvidaré:
+                        </p>
+                        <ul class="memory-list">
+                            <li>Esas noches largas hablando de todo y de nada</li>
+                            <li>Las carcajadas que nos dieron sin razón aparente</li>
+                            <li>Cuando me tomaste de la mano por primera vez</li>
+                            <li>Cada abrazo tuyo que siente como llegar a casa</li>
+                            <li>Las aventuras que vivimos juntos, grandes y pequeñas</li>
+                            <li>Esos silencios cómodos que solo tenemos nosotros</li>
+                        </ul>
+                        <div class="page-decoration">🎞️ 💕 🎞️ 💕 🎞️</div>
+                    </div>
+                </div>
 
-    <!-- Página 6 -->
-    <div class="page" id="p6">
-      <span class="page-num">Página 06</span>
-      <span class="date-badge">23 de agosto</span>
-      <h2 class="chapter-title">Más momentos juntos</h2>
-      <div class="page-body">
-        <p>Nuestra segunda salida fue a Playmax. Fue un momento divertido.</p>
-        <p>Me acuerdo que tenía miedo en el tobogán jajaj, y también cuando me puse sus lentes… quedé ciego por un momento 😄</p>
-        <p>Después fuimos a Wendy's y pasamos por su mamá al trabajo.</p>
-      </div>
-      <div class="closing">
-        Pequeños momentos… pero que se fueron quedando.
-      </div>
-    </div>
+                <!-- PÁGINA 4 - Carta de Amor -->
+                <div class="page" id="page-4">
+                    <div class="page-header">
+                        <span class="page-date">💌 Carta Para Ti</span>
+                        <span class="page-emoji">✉️</span>
+                        <span class="page-number">Pág. 04</span>
+                    </div>
+                    <div class="page-content">
+                        <h2 class="page-title">Lo Que Mi Corazón Quiere Decirte</h2>
+                        <p class="page-text">
+                            Mi amor,<br><br>
+                            Hay cosas que a veces no sé cómo decirte en voz alta,
+                            palabras que se quedan atrapadas entre el corazón y
+                            los labios. Por eso las escribo aquí, para que las
+                            leas y sepas exactamente lo que siento.
+                        </p>
+                        <div class="highlight-box">
+                            "Contigo aprendí que el amor no es solo un sentimiento,
+                            es una decisión que tomo cada día al despertar."
+                        </div>
+                        <p class="page-text">
+                            Quiero que sepas que en mis días más difíciles,
+                            pensar en ti es lo que me da fuerzas. Tu existencia
+                            en mi vida es el regalo más grande que he recibido.
+                            <br><br>
+                            No soy perfecto, pero contigo quiero ser la
+                            <em>mejor versión de mí mismo</em>, cada día,
+                            sin excepción.
+                        </p>
+                        <div class="page-decoration">💌 🌹 💌 🌹 💌</div>
+                        <div class="signature">
+                            Tuyo siempre,
+                            <div class="signature-line">El que te ama 💖</div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Página 7 -->
-    <div class="page" id="p7">
-      <span class="page-num">Página 07</span>
-      <h2 class="chapter-title">Más cerca poco a poco</h2>
-      <div class="page-body">
-        <p>Después me uní a apoyarle en la célula.</p>
-        <p>Sin darme cuenta, ya compartíamos más tiempo, más espacios… ya no era solo coincidencia.</p>
-      </div>
-      <div class="p7-gallery">
-        <div class="photo-box p7-photo-box">
-          <img src="celula1.jpeg" alt="Recuerdo de célula 1" class="story-photo p7-photo" />
+                <!-- PÁGINA 5 - Mis Promesas -->
+                <div class="page" id="page-5">
+                    <div class="page-header">
+                        <span class="page-date">🤝 Mis Promesas Para Ti</span>
+                        <span class="page-emoji">💍</span>
+                        <span class="page-number">Pág. 05</span>
+                    </div>
+                    <div class="page-content">
+                        <h2 class="page-title">Lo Que Te Prometo</h2>
+                        <p class="page-text">
+                            Estas no son palabras vacías. Son compromisos
+                            que hago desde lo más profundo de mi ser,
+                            sellados con todo mi amor:
+                        </p>
+                        <div class="promise-item">
+                            <div class="promise-number">1</div>
+                            <span>Prometerte estar siempre, en los días de sol y en las tormentas más fuertes</span>
+                        </div>
+                        <div class="promise-item">
+                            <div class="promise-number">2</div>
+                            <span>Hacerte reír todos los días, aunque sea con mis chistes malos</span>
+                        </div>
+                        <div class="promise-item">
+                            <div class="promise-number">3</div>
+                            <span>Escucharte siempre, con toda mi atención y mi corazón abierto</span>
+                        </div>
+                        <div class="promise-item">
+                            <div class="promise-number">4</div>
+                            <span>Recordarte cada día lo hermosa e increíble que eres</span>
+                        </div>
+                        <div class="promise-item">
+                            <div class="promise-number">5</div>
+                            <span>Crecer contigo, aprender de ti y construir algo hermoso juntos</span>
+                        </div>
+                        <div class="promise-item">
+                            <div class="promise-number">6</div>
+                            <span>Amarte hoy, mañana y todos los días que me queden de vida</span>
+                        </div>
+                        <div class="highlight-box">
+                            "Te lo prometo con el corazón en la mano
+                            y el alma entera." 💍
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PÁGINA 6 - Nuestro Futuro -->
+                <div class="page" id="page-6">
+                    <div class="page-header">
+                        <span class="page-date">🌟 Nuestro Futuro Juntos</span>
+                        <span class="page-emoji">🔭</span>
+                        <span class="page-number">Pág. 06</span>
+                    </div>
+                    <div class="page-content">
+                        <h2 class="page-title">Lo Que Sueño Para Nosotros</h2>
+                                               <p class="page-text">
+                            Cuando pienso en el futuro, siempre apareces tú.
+                            No puedo imaginar ningún mañana que no tenga
+                            tu nombre escrito en él. Estos son mis sueños
+                            para nosotros:
+                        </p>
+                        <ul class="memory-list">
+                            <li>Viajar juntos y descubrir nuevos lugares de la mano</li>
+                            <li>Construir un hogar lleno de amor, risas y abrazos</li>
+                            <li>Envejecer juntos y seguir eligiéndonos cada día</li>
+                            <li>Crear recuerdos que duren toda una vida</li>
+                            <li>Ser tu apoyo incondicional en cada sueño que tengas</li>
+                            <li>Despertar cada mañana a tu lado y dar gracias por eso</li>
+                        </ul>
+                        <div class="highlight-box">
+                            "Quiero que el resto de mi vida
+                            empiece contigo a mi lado, hoy y siempre." 🌟
+                        </div>
+                        <p class="page-text">
+                            No sé lo que nos depara el destino, pero sé que
+                            <strong>contigo cualquier camino vale la pena.</strong>
+                            Eres mi aventura favorita, mi hogar más cálido,
+                            mi persona elegida.
+                        </p>
+                        <div class="page-decoration">🌟 💫 🌟 💫 🌟</div>
+                    </div>
+                </div>
+
+                <!-- PÁGINA 7 - Razones Para Amarte -->
+                <div class="page" id="page-7">
+                    <div class="page-header">
+                        <span class="page-date">💖 Razones Para Amarte</span>
+                        <span class="page-emoji">🌺</span>
+                        <span class="page-number">Pág. 07</span>
+                    </div>
+                    <div class="page-content">
+                        <h2 class="page-title">¿Por Qué Te Amo?</h2>
+                        <p class="page-text">
+                            Me han preguntado por qué te amo tanto.
+                            La verdad es que podría llenar mil libros
+                            con las razones, pero aquí van algunas:
+                        </p>
+                        <div class="promise-item">
+                            <div class="promise-number">💕</div>
+                            <span>Porque con solo verte, mi día se vuelve mejor</span>
+                        </div>
+                        <div class="promise-item">
+                            <div class="promise-number">💕</div>
+                            <span>Porque me haces querer ser mejor persona cada día</span>
+                        </div>
+                        <div class="promise-item">
+                            <div class="promise-number">💕</div>
+                            <span>Porque tu forma de amar es la más bonita del mundo</span>
+                        </div>
+                        <div class="promise-item">
+                            <div class="promise-number">💕</div>
+                            <span>Porque me aceptas exactamente como soy</span>
+                        </div>
+                        <div class="promise-item">
+                            <div class="promise-number">💕</div>
+                            <span>Porque contigo el tiempo vuela y aun así quiero más</span>
+                        </div>
+                        <div class="promise-item">
+                            <div class="promise-number">💕</div>
+                            <span>Porque eres la respuesta a preguntas que ni sabía hacer</span>
+                        </div>
+                        <div class="highlight-box">
+                            "Te amo no solo por quien eres,
+                            sino por quien soy cuando estoy contigo." 💖
+                        </div>
+                        <div class="page-decoration">🌺 💖 🌺 💖 🌺</div>
+                    </div>
+                </div>
+
+                <!-- PÁGINA 8 - Página Final -->
+                <div class="page final-page" id="page-8">
+                    <div class="page-header">
+                        <span class="page-date">💝 El Final... Y El Comienzo</span>
+                        <span class="page-emoji">🎊</span>
+                        <span class="page-number">Pág. 08</span>
+                    </div>
+                    <div class="page-content">
+                        <div class="final-heart-container">
+                            <span class="final-heart">💝</span>
+                        </div>
+                        <h2 class="page-title">Para Ti, Mi Todo</h2>
+                        <div class="final-box">
+                            <p class="final-message">
+                                "Este diario es solo una pequeña muestra
+                                de todo el amor que siento por ti.
+                                Las palabras nunca serán suficientes,
+                                pero espero que cada página te haya
+                                hecho sentir lo especial que eres para mí."
+                            </p>
+                        </div>
+                        <p class="page-text">
+                            Mi amor, gracias por leer hasta aquí.
+                            Gracias por ser mi inspiración, mi calma,
+                            mi alegría y mi hogar. Este diario no tiene
+                            fin porque nuestra historia apenas comienza.
+                            <br><br>
+                            Cada día contigo es una nueva página en blanco
+                            que quiero llenar de <em>momentos hermosos,
+                            risas eternas y amor infinito.</em>
+                        </p>
+                        <div class="final-box">
+                            <p class="final-message">
+                                💕 Te amo hoy, mañana<br>
+                                y todos los días que vengan. 💕<br><br>
+                                <strong>Para siempre tuyo/a</strong>
+                            </p>
+                        </div>
+                        <div class="page-decoration">💝 ✨ 💝 ✨ 💝</div>
+                        <div class="signature">
+                            Con todo mi amor eterno,
+                            <div class="signature-line">Tu persona 💖</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- FIN PÁGINAS -->
+
         </div>
+        <!-- FIN LIBRO -->
+    </div>
+    <!-- FIN BOOK WRAPPER -->
 
-        <div class="photo-box p7-photo-box">
-          <img src="celula2.jpeg" alt="Recuerdo de célula 2" class="story-photo p7-photo" />
+    <!-- ===== NAVEGACIÓN ===== -->
+    <div class="navigation" id="navigation" style="display:none;">
+        <button class="nav-btn" id="prevBtn" onclick="changePage(-1)" disabled>
+            ◀ Anterior
+        </button>
+        <div>
+            <div class="page-indicator" id="pageIndicator">Página 1 de 8</div>
+            <div class="page-dots" id="pageDots"></div>
         </div>
-      </div>
-
-      <div class="closing">
-        Ya no era solo coincidir, ya era compartir.
-      </div>
+        <button class="nav-btn" id="nextBtn" onclick="changePage(1)">
+            Siguiente ▶
+        </button>
     </div>
 
-    <!-- Página 8 -->
-    <div class="page" id="p8">
-      <span class="page-num">Página 08</span>
-      <h2 class="chapter-title">Algo empezó a cambiar</h2>
-      <div class="page-body">
-        <p>A finales de año compartimos tiempo con su familia.</p>
-        <p>Ahí empecé a pensar diferente… a verla distinto. Ya no era solo una amistad normal.</p>
-        <p>Algo estaba creciendo.</p>
-      </div>
+    <!-- ===== BOTÓN VOLVER A PORTADA ===== -->
+    <button class="back-cover-btn"
+            id="backCoverBtn"
+            style="display:none;"
+            onclick="closeBook()">
+        📕 Volver a la Portada
+    </button>
 
-      <div class="photo-box">
-        <img src="navidad.jpeg" alt="Recuerdo de navidad" class="story-photo" />
-      </div>
+    <!-- ===== BOTÓN MÚSICA ===== -->
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Música">
+        🎵
+    </button>
+    <div class="tooltip" id="musicTooltip">¡Activa el sonido! 🎵</div>
 
-      <div class="closing">
-        Ahí comenzó un sentimiento más fuerte.
-      </div>
-    </div>
+    <!-- ===== AUDIO ===== -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- Página 9 -->
-    <div class="page" id="p9">
-      <span class="page-num">Página 09</span>
-      <h2 class="chapter-title">Un cumpleaños diferente</h2>
-      <div class="page-body">
-        <p>Llegó mi cumpleaños. Y yo no soy alguien que celebre mucho eso.</p>
-        <p>Pero esta vez fue diferente… por usted.</p>
-        <p>Sus detalles, su atención… hicieron que ese día fuera especial. Y también fue parte de otro momento importante: el viaje a Santa Lucía.</p>
-        <p>Si se fija, ha estado presente en muchos momentos importantes de mi vida.</p>
-      </div>
-      <div class="closing">
-        Hizo especial algo que normalmente no lo es para mí.
-      </div>
-    </div>
-
-    <!-- Página 10 -->
-    <div class="page" id="p10">
-      <span class="page-num">Página 10</span>
-      <h2 class="chapter-title">La confirmación</h2>
-      <div class="page-body">
-        <p>En el campamento pude compartir más tiempo con usted.</p>
-        <p>Yo ya venía orando, pidiendo una señal: que si usted era la persona para mí, sintiera paz a su lado.</p>
-        <p>Y eso ya lo venía sintiendo.</p>
-        <p>Ese día de los juegos… la miré diferente. Casi le digo todo ahí mismo, pero no era el momento.</p>
-        <p>También sentí que usted era más intencional conmigo… y yo también lo fui.</p>
-      </div>
-        <div class="photo-box p7-photo-box">
-          <img src="contodo1.jpeg" alt="Recuerdo de célula 2" class="story-photo p10-photo" />
-        </div>
-
-      <div class="closing">
-        Ahí lo entendí: algo ya era real.
-      </div>
-    </div>
-
-    <!-- Página 11 -->
-    <div class="page" id="p11">
-      <span class="page-num">Página 11</span>
-      <h2 class="chapter-title">El valor que no sabía que tenía</h2>
-      <div class="page-body">
-        <p>Cuando le dije lo que sentía por mensaje… no sé de dónde salió ese valor.</p>
-        <p>Y luego ir a hablar con el pastor, con su mamá… cosas que nunca imaginé hacer.</p>
-        <p>Ahí entendí que no era solo yo… algo más me estaba dando ese impulso.</p>
-      </div>
-      <div class="closing">
-        Hasta el valor fue parte de la respuesta.
-      </div>
-    </div>
-
-    <!-- Página 12 -->
-    <div class="page" id="p12">
-      <span class="page-num">Página 12</span>
-      <h2 class="chapter-title">Siempre presente</h2>
-      <div class="page-body">
-        <p>El viaje a Trujillo fue otro momento más donde usted estuvo.</p>
-        <p>Y ahí confirmé algo claro: Usted no es cualquier persona en mi vida.</p>
-        <p>Ha estado en momentos importantes, en etapas clave… y eso no es casualidad.</p>
-        <p>También sé que no todo ha sido perfecto. Hemos tenido desacuerdos, y muchas veces yo he sido el causante.</p>
-        <p>Pero usted siempre ha buscado arreglar las cosas… y eso dice mucho.</p>
-      </div>
-      <div class="closing">
-        Usted es alguien realmente especial para mí.
-      </div>
-    </div>
-
-    <!-- Página 13 — PROPUESTA -->
-    <div class="page proposal-page" id="p13">
-      <span class="page-num">Página 13</span>
-      <h2 class="chapter-title" style="text-align:center;">La pregunta</h2>
-      <div class="page-body" style="text-align:center;">
-        <p>Después de todo lo que hemos vivido…</p>
-        <p>Después del tiempo, los momentos, lo aprendido…</p>
-        <p>Hoy quiero preguntarle algo muy importante:</p>
-      </div>
-      <div class="big-question">¿Quiere ser mi novia?</div>
-      <div class="btn-group">
-        <button class="btn-yes" onclick="showYes()">Sí 🤍</button>
-        <button class="btn-no" id="btn-no" onmouseover="moveNoBtn()" ontouchstart="moveNoBtn()">No</button>
-      </div>
-    </div>
-
-  </div>
-  <!-- fin book-wrapper -->
-
-  <!-- ══ YES SCREEN ══ -->
-  <div id="yes-screen">
-    <span class="big-heart">🤍</span>
-    <h2>¡Sí! 🎉</h2>
-    <p>Gracias por dejarme ser parte de su historia.<br/>Esto apenas comienza. ✨</p>
-  </div>
-
-  <!-- ══ NAVEGACIÓN ══ -->
-  <div class="nav-area" id="nav-area" style="display:none;">
-    <button class="nav-btn" id="btn-prev" onclick="changePage(-1)">&#8592;</button>
-    <button class="nav-btn" id="btn-next" onclick="changePage(1)">&#8594;</button>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
