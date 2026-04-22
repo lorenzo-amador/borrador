@@ -577,8 +577,8 @@ function createFloatingHeart(x, y) {
 // ============================================
 // 👇 CAMBIA ESTOS VALORES CON TUS NOMBRES
 const CONFIG = {
-    miNombre:      'Tu Nombre',       // Tu nombre
-    suNombre:      'Nombre de Ella',  // Nombre de tu novia
+    miNombre:      'Lorenzo',       // Tu nombre
+    suNombre:      'Kimberly',  // Nombre de tu novia
     fechaInicio:   '14 de Febrero',   // Fecha especial
     lugarEspecial: 'Nuestro lugar',   // Lugar especial
 };
